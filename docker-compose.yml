@@ -1,9 +1,8 @@
 version: "3"
 services: 
     app:
-        image: php:8.0.8-apache
+        build: .
         restart: always
-        # command: docker-php-ext-install mysqli
         ports: 
             - 80:80
         volumes: 
@@ -13,8 +12,8 @@ services:
         image: mysql
         command: --default-authentication-plugin=mysql_native_password
         restart: always
-        # volumes: 
-        #      - ./database:/var/lib/mysql
+        volumes: 
+             - ./database:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: 123456
     

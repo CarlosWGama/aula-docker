@@ -9,7 +9,7 @@ CONST DB_PASSWORD = '123456';
 CONST DB_DATABASE = 'teste';
 
 $db = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
-$datas = $db->query($connection, "SELECT * FROM usuarios");
+$datas = $db->query("SELECT * FROM usuarios");
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +27,10 @@ $datas = $db->query($connection, "SELECT * FROM usuarios");
             <th>Nome</th>
         </thead>
         <tbody>
-            <?php foreach($data as $user): ?>
+            <?php foreach($datas as $user): ?>
             <tr>
-                <td>$user->id</td>
-                <td>$user->nome</td>
+                <td><?=$user['id']?></td>
+                <td><?=$user['nome']?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
